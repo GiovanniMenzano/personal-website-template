@@ -1,0 +1,16 @@
+{
+	"lines" : [
+		"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consectetur ac tellus non condimentum.",
+		"Duis suscipit orci id felis viverra vestibulum id non eros. Donec venenatis ut ante vel scelerisque.",
+		"Aliquam tempor a eros nec mollis. Praesent ac erat commodo, ultrices nulla ut, ornare sem.",
+		"Quisque a varius enim, vel bibendum sem. Aliquam eu metus diam. Pellentesque id malesuada felis. Duis maximus eleifend iaculis. Maecenas eget erat eget nunc sodales maximus commodo id augue.",
+		"Curabitur malesuada scelerisque lectus, eget ultricies ante feugiat eget.",
+		"Sed lacus eros, accumsan quis ante sit amet, luctus consectetur mi.",
+		"Ut accumsan feugiat lobortis."
+	],
+	"defaultLines" : [
+		"Hi, I'm <your name here>.",
+		"<your description here>."
+	],
+	"emailjspk" : "replace this key value with the one you get from https://www.emailjs.com/"
+}

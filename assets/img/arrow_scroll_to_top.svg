@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.71mm" height="16.71mm" viewBox="0 0 47.36 47.36">
+  <defs>
+    <style>
+      .a {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <title>scroll_to_top</title>
+  <path d="M38.77,33.72l1.46-1.46L24.16,16.2,8.1,32.26l1.45,1.46L24.16,19.11Z" transform="translate(-0.48 -0.37)"/>
+  <path class="a" d="M24.16,47.73A23.68,23.68,0,1,1,47.84,24.05,23.71,23.71,0,0,1,24.16,47.73Zm0-45.36A21.68,21.68,0,1,0,45.84,24.05,21.7,21.7,0,0,0,24.16,2.37Z" transform="translate(-0.48 -0.37)"/>
+</svg>

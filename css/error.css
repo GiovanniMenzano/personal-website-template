@@ -1,0 +1,73 @@
+@import url('../css/global.css');
+
+#error {
+	width: 100vw;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	justify-content: center;
+	width:100%;
+}
+
+.error--wrapper {
+	width: 100%;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	animation: fade-up 600ms 400ms backwards;
+}
+
+.error__picture--wrapper, .error__description {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.error__picture--wrapper {
+	width: 40%;
+}
+
+.error__picture {
+	width: 50%;
+}
+
+.error__description {
+	width: 60%;
+}
+
+.error__description--title {
+	margin-bottom: 12px;
+}
+
+/* RESPONSIVE SECTION: SMARTPHONES AND TABLETS */
+@media only screen and (max-width: 768px) {
+	.error__picture--wrapper {
+		width: 100%;
+	}
+
+	.error__picture {
+		max-width: 150px;
+		aspect-ratio: 2/3;
+	}
+
+	.error__description {
+		width: 100%;
+		margin-top: 12px;
+	}
+}

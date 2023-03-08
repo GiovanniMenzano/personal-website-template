@@ -1,0 +1,176 @@
+@import url('../css/global.css');
+
+label, button {
+	font-size: 16px !important;
+	line-height: 1.5;
+	color: #242424;
+}
+
+#contact-me {
+	width: 100vw;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.form--wrapper {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	justify-content: center;
+	animation: fade-up 600ms 400ms backwards;
+}
+
+#contact-form {
+	padding: 25px;
+	border-radius: 10px;
+	box-shadow: 0 10px 12px rgba(0, 0, 0, 0.4);
+	background: #f8f8f8;
+}
+
+fieldset {
+	width: 100%;
+	min-width: 100%;
+	border: medium none !important;
+}
+
+fieldset:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+#contact-form input[type="email"],
+#contact-form textarea {
+	width: 100%;
+	margin: 0 0 5px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	background: #ffffff;
+}
+
+#contact-form input[type="email"]:hover,
+#contact-form textarea:hover {
+	-webkit-transition: border-color 0.3s ease-in-out;
+	-moz-transition: border-color 0.3s ease-in-out;
+	transition: border-color 0.3s ease-in-out;
+	border: 1px solid #aaaaaa;
+}
+
+#contact-form textarea {
+	height: 100px;
+	max-width: 100%;
+	resize: none;
+}
+
+#submit-button {
+	width: 100%;
+	position: relative;
+	top: -3px;
+	padding: 8px 16px;
+	border-radius: 5px;
+    border: none;
+    font-weight: 700;
+	background-color: #ff7c22;
+	text-decoration: none;
+	color: #ffffff;
+	box-shadow: inset 0 1px 0 #ffa365, 0 5px 0 0 #b14e14, 0 10px 5px rgba(0, 0, 0, 0.5);
+	transition: all 50ms;
+}
+
+#submit-button:hover {
+	/* TODO add better glow effect */
+	/* background-image: linear-gradient(to bottom, rgb(255,230,0) 0%, rgb(255,124,34) 100%); */
+}
+
+#submit-button:active {
+	top: 0px;
+	background-image: linear-gradient(to bottom, rgb(255,124,34) 0%, rgb(255, 102, 0) 100%);
+	box-shadow: inset 0 1px 0 #ffa365, 0 2px 0 0 #b14e14, 0 5px 3px rgba(0, 0, 0, 0.5);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+	outline: 0;
+	border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+	color: #888;
+}
+
+:-moz-placeholder {
+	color: #888;
+}
+
+::-moz-placeholder {
+	color: #888;
+}
+
+:-ms-input-placeholder {
+	color: #888;
+}
+
+.result-message--wrapper {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.result-message {
+	margin: 24px 0;
+	font-size: 20px;
+	transform: scale(0);
+	opacity: 0;
+	transition: all 400ms;
+}
+
+.result-message--active {
+	transform: scale(1);
+	opacity: 1;
+}
+
+.result-message--ok {
+	color: forestgreen;
+}
+
+.result-message--ko {
+	color: crimson;
+}
+
+/* enable this rule if you want to hide the google recaptcha badge */
+/* .grecaptcha-badge {
+	visibility: hidden;
+} */
+
+/* RESPONSIVE SECTION: BIG TABLETS (AKA THE FKN IPAD AIR and SURFACE PRO) */
+@media only screen and (max-width: 912px) {
+
+}
+/* RESPONSIVE SECTION: SMARTPHONES AND TABLETS */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* RESPONSIVE SECTION: SMALL PHONES */
+@media only screen and (max-width: 480px) {
+	
+}
+
+/* RESPONSIVE SECTION: FUCKIN' FOLDIN' PHONES */
+@media only screen and (max-width: 360px) {
+
+}
+/* END RESPONSIVE SECTION */

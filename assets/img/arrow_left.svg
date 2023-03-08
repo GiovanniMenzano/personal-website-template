@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.71mm" height="16.71mm" viewBox="0 0 47.36 47.36">
+  <defs>
+    <style>
+      .a {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <title>arrow_left</title>
+  <path d="M32.93,10.35,31.47,8.89,15.4,25,31.47,41l1.45-1.46L18.32,25Z" transform="translate(-0.48 -0.37)"/>
+  <path class="a" d="M24.16,47.73A23.68,23.68,0,1,1,47.84,24.05,23.71,23.71,0,0,1,24.16,47.73Zm0-45.36A21.68,21.68,0,1,0,45.84,24.05,21.7,21.7,0,0,0,24.16,2.37Z" transform="translate(-0.48 -0.37)"/>
+</svg>

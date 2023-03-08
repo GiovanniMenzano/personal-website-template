@@ -1,0 +1,1091 @@
+/* Credits to animate.css (http://daneden.me/animate/), codrops (https://github.com/codrops/CreativeButtons) and dcode (https://dev.to/dcodeyt) for some of the animations */
+
+@font-face {
+	font-family: Cyberpunk;
+	src: url("../assets/font/Blender-Pro-Bold.otf");
+	font-display: swap;
+	/* font-weight: 400; */
+	/* font-style: normal; */
+}
+
+* {
+	font-family: 'Recursive', 'Cyberpunk', sans-serif; /* 'Lato' */
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-o-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	/* cursor: url(../assets/cursor/pointer_cursor.svg), auto; */
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	min-width: 256px;
+	background: url(../assets/img/background_texture.webp) repeat top left;
+	
+	overflow-y: scroll;
+	overflow-x: hidden;
+	/* Disable scrollbar while keeping scroll enabled*/
+	/* -ms-overflow-style: none; /* Internet Explorer, Edge -_-' */
+	/* scrollbar-width: none; /* Firefox */
+	scrollbar-width: auto; /* Firefox */
+	scrollbar-color: #676767 #242424; /* Firefox */
+}
+
+/* SCROLL BAR */
+body::-webkit-scrollbar {
+	width: 8px;
+	/* Disable scrollbar while keeping scroll enabled*/
+	/* display: none; /* Chrome, Safari, and Opera. Who the hell still thinks is a good idea not forcing standards */
+}
+
+body::-webkit-scrollbar-track {
+	background: #242424;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: #676767;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+	background: #7b7b7b;
+}
+
+body::-webkit-scrollbar-thumb:active {
+	background: #676767;
+}
+/* END SCROLL BAR */
+
+/* GLOBAL */
+h1, h2, h3, h4, h5, h6, span, p {
+	color: #242424;
+	text-align: center;
+	line-height: 1.25;
+}
+
+h1 {
+	font-size: clamp(1.25rem, calc(0.75rem + 1.66vw), 1.8rem); /* 2rem */
+}
+	
+h2 {
+	font-size: clamp(1.04rem, calc(0.75rem + 1.26vw), 1.56rem);
+}
+	
+h3 {
+	font-size: clamp(0.75rem, calc(0.75rem + 0.7vw), 1.3rem);
+}
+
+p {
+	line-height: 1.5;
+	font-size: clamp(0.75rem, calc(0.75rem + 0.55vw), 0.95rem);
+}
+
+a {
+	text-decoration: none;
+	position: relative;
+	transition: opacity 200ms ease;
+}
+
+i {
+	font-style: normal;
+}
+
+i:hover {
+	opacity: 0.6;
+}
+
+button {
+	/* cursor: unset; /* decomment rule if you want to use a custom cursor */
+}
+
+.link__hover-effect::after {
+	width: 0;
+	height: 3px;
+	content: "";
+	position: absolute;
+	bottom: -3px;
+	right: 0;
+	transition: all 300ms ease;
+}
+
+.link__hover-effect--dark::after {
+	background-color: #242424;
+}
+
+.link__hover-effect--light::after {
+	background-color: #ffffff;
+}
+
+.link__hover-effect:hover::after {
+	width: 100%;
+	left: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+.flex {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.container {
+	padding: 80px 0;
+}
+
+.row {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 12px;
+}
+
+.primary-color {
+	color: #242424;
+}
+
+.primary-color--background {
+	background-color: #242424;
+}
+
+.secondary-color {
+	color: #ff7c22; /* #2A3E2D */
+}
+
+.secondary-color--background {
+	/* #7367f0 - #ce9ffc */
+	/* background: rgb(115,103,240); */
+	/* background: linear-gradient(90deg, rgba(115,103,240,1) 0%, rgba(206,159,252,1) 100%); */
+
+	/* #0f2027 - #2c5364 */
+	/* background: rgb(15,32,39); */
+	/* background: linear-gradient(90deg, rgba(15,32,39,1) 0%, rgba(44,83,100,1) 100%); */
+
+	/* #89216b - #ce546d */
+	/* background: rgb(137,33,107); */
+	/* background: linear-gradient(90deg, rgba(137,33,107,1) 0%, rgba(206,84,109,1) 100%); */
+
+	/* #2c3e50 - #bdc3c7 */
+	/* background: rgb(44,62,80); */
+	/* background: linear-gradient(90deg, rgba(44,62,80,1) 0%, rgba(189,195,199,1) 100%); */
+
+	/* #ff7c22 - #ffe600 */
+	background: rgb(255,124,34);
+	/* background: linear-gradient(90deg, rgba(231,111,0,1) 0%, rgba(255,230,0,1) 100%); */
+
+	/* #141e30 - #243b55 */
+	/* background: rgb(20,30,48); */
+	/* background: linear-gradient(90deg, rgba(20,30,48,1) 0%, rgba(36,59,85,1) 100%); */
+
+	/* #134e5e - #243b55 */
+	/* background: rgb(19,78,94); */
+	/* background: linear-gradient(90deg, rgba(19,78,94,1) 0%, rgba(36,59,85,1) 100%); */
+
+	/* #323232 - #9b9b9b */
+	/* background: rgb(50,50,50); */
+	/* background: linear-gradient(90deg, rgba(50,50,50,1) 0%, rgba(155,155,155,1) 100%); */
+}
+
+.secondary-color--gradient {
+	/* use this class if you want to apply a gradient to a text */
+	background: -webkit-linear-gradient(45deg, rgba(231,111,0,1) 0%, rgba(255,230,0,1) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.text--selected {
+	background-color: #c0c0c0; /* #c8c8c8 #aebcb9 */
+}
+
+.max-width-600 {
+	max-width: 600px;
+}
+
+section {
+	min-width: 264px;
+}
+
+.alternate-background-color:nth-of-type(even) {
+	/* background-color: #f8f8f8; */
+	/* background: rgba(248,248,248,0); */
+}
+
+.alternate-background-color:nth-of-type(odd) {
+	/* background-color: #ffffff; */
+	background: rgba(255,255,255,0.5);
+}
+
+.section__title {
+	margin-bottom: 20px;
+}
+
+.icon {
+	filter: invert(15%);
+}
+
+.icon:hover {
+	filter: invert(30%);
+}
+
+.icon:active {
+	filter: invert(15%);
+}
+
+.button::after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	transition: all 0.3s;
+}
+
+.button--loading,
+.button--success,
+.button--error {
+	color: transparent !important;
+}
+
+.button--loading::after {
+	content: "";
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	border: 4px solid transparent;
+	border-radius: 50%;
+	border-top-color: #ffffff;
+	animation: loading-spinner 1s ease infinite;
+}
+
+.button--error {
+	animation: shake 0.5s;
+}
+
+.button--success::after,
+.button--error::after {
+	left: 0;
+	right: 0;
+	z-index: 1;
+	color: #ffffff;
+	animation: scaleFromUp 0.5s;
+}
+
+
+.button--success::after {
+	content: "fatto!";
+}
+
+.button--error::after {
+	content: "errore!";
+}
+
+.first-section--fullscreen {
+	/* temporarily disabled because mobile browsers usually already cover part of the viewport, maybe I'll find another solution (very unlikely) */
+	min-height: calc(100vh - 16vh);
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.hidden {
+	display: none;
+}
+/* END GLOBAL */
+
+/* TEXT GLITCH EFFECT (dark background recommended) */
+/* not fully working and goes in conflict with the underscore-cursor class, I'll leave it here for future work (very unlikely) */
+.glitch-layers {
+	position: relative;
+}
+
+.glitch-layers::before,
+.glitch-layers::after {
+	content: attr(data-text);
+	position: absolute;
+	width: 110%;
+	z-index: -1;
+}
+
+.glitch-layers::before {
+	top: 10px;
+	left: 15px;
+	color: #eb1d53; /* #e0287d */
+}
+
+.glitch-layers::after {
+	top: 5px;
+	left: -10px;
+	color: #66c9cf; /* #1bc7fb */
+}
+
+@keyframes glitch-paths {
+	0% {
+		clip-path: polygon(
+			0% 43%,
+			83% 43%,
+			83% 22%,
+			23% 22%,
+			23% 24%,
+			91% 24%,
+			91% 26%,
+			18% 26%,
+			18% 83%,
+			29% 83%,
+			29% 17%,
+			41% 17%,
+			41% 39%,
+			18% 39%,
+			18% 82%,
+			54% 82%,
+			54% 88%,
+			19% 88%,
+			19% 4%,
+			39% 4%,
+			39% 14%,
+			76% 14%,
+			76% 52%,
+			23% 52%,
+			23% 35%,
+			19% 35%,
+			19% 8%,
+			36% 8%,
+			36% 31%,
+			73% 31%,
+			73% 16%,
+			1% 16%,
+			1% 56%,
+			50% 56%,
+			50% 8%
+		);
+	}
+	5% {
+		clip-path: polygon(
+			0% 29%,
+			44% 29%,
+			44% 83%,
+			94% 83%,
+			94% 56%,
+			11% 56%,
+			11% 64%,
+			94% 64%,
+			94% 70%,
+			88% 70%,
+			88% 32%,
+			18% 32%,
+			18% 96%,
+			10% 96%,
+			10% 62%,
+			9% 62%,
+			9% 84%,
+			68% 84%,
+			68% 50%,
+			52% 50%,
+			52% 55%,
+			35% 55%,
+			35% 87%,
+			25% 87%,
+			25% 39%,
+			15% 39%,
+			15% 88%,
+			52% 88%
+		);
+	}
+	30% {
+		clip-path: polygon(
+			0% 53%,
+			93% 53%,
+			93% 62%,
+			68% 62%,
+			68% 37%,
+			97% 37%,
+			97% 89%,
+			13% 89%,
+			13% 45%,
+			51% 45%,
+			51% 88%,
+			17% 88%,
+			17% 54%,
+			81% 54%,
+			81% 75%,
+			79% 75%,
+			79% 76%,
+			38% 76%,
+			38% 28%,
+			61% 28%,
+			61% 12%,
+			55% 12%,
+			55% 62%,
+			68% 62%,
+			68% 51%,
+			0% 51%,
+			0% 92%,
+			63% 92%,
+			63% 4%,
+			65% 4%
+		);
+	}
+	45% {
+		clip-path: polygon(
+			0% 33%,
+			2% 33%,
+			2% 69%,
+			58% 69%,
+			58% 94%,
+			55% 94%,
+			55% 25%,
+			33% 25%,
+			33% 85%,
+			16% 85%,
+			16% 19%,
+			5% 19%,
+			5% 20%,
+			79% 20%,
+			79% 96%,
+			93% 96%,
+			93% 50%,
+			5% 50%,
+			5% 74%,
+			55% 74%,
+			55% 57%,
+			96% 57%,
+			96% 59%,
+			87% 59%,
+			87% 65%,
+			82% 65%,
+			82% 39%,
+			63% 39%,
+			63% 92%,
+			4% 92%,
+			4% 36%,
+			24% 36%,
+			24% 70%,
+			1% 70%,
+			1% 43%,
+			15% 43%,
+			15% 28%,
+			23% 28%,
+			23% 71%,
+			90% 71%,
+			90% 86%,
+			97% 86%,
+			97% 1%,
+			60% 1%,
+			60% 67%,
+			71% 67%,
+			71% 91%,
+			17% 91%,
+			17% 14%,
+			39% 14%,
+			39% 30%,
+			58% 30%,
+			58% 11%,
+			52% 11%,
+			52% 83%,
+			68% 83%
+		);
+	}
+	76% {
+		clip-path: polygon(
+			0% 26%,
+			15% 26%,
+			15% 73%,
+			72% 73%,
+			72% 70%,
+			77% 70%,
+			77% 75%,
+			8% 75%,
+			8% 42%,
+			4% 42%,
+			4% 61%,
+			17% 61%,
+			17% 12%,
+			26% 12%,
+			26% 63%,
+			73% 63%,
+			73% 43%,
+			90% 43%,
+			90% 67%,
+			50% 67%,
+			50% 41%,
+			42% 41%,
+			42% 46%,
+			50% 46%,
+			50% 84%,
+			96% 84%,
+			96% 78%,
+			49% 78%,
+			49% 25%,
+			63% 25%,
+			63% 14%
+		);
+	}
+	90% {
+		clip-path: polygon(
+			0% 41%,
+			13% 41%,
+			13% 6%,
+			87% 6%,
+			87% 93%,
+			10% 93%,
+			10% 13%,
+			89% 13%,
+			89% 6%,
+			3% 6%,
+			3% 8%,
+			16% 8%,
+			16% 79%,
+			0% 79%,
+			0% 99%,
+			92% 99%,
+			92% 90%,
+			5% 90%,
+			5% 60%,
+			0% 60%,
+			0% 48%,
+			89% 48%,
+			89% 13%,
+			80% 13%,
+			80% 43%,
+			95% 43%,
+			95% 19%,
+			80% 19%,
+			80% 85%,
+			38% 85%,
+			38% 62%
+		);
+	}
+	1%, 7%, 33%, 47%, 78%, 93% { clip-path: none; }
+}
+
+@keyframes glitch-movement {
+	0% { top: 0px; left: -20px; }
+	15% { top: 10px; left: 10px; }
+	60% { top: 5px; left: -10px; }
+	75% { top: -5px; left: 20px; }
+	100% { top: 10px; left: 5px; }
+}
+
+@keyframes glitch-opacity {
+	0% { opacity: 0.1; }
+	5% { opacity: 0.7; }
+	30% { opacity: 0.4; }
+	45% { opacity: 0.6; }
+	76% { opacity: 0.4; }
+	90% { opacity: 0.8; }
+	1%, 7%, 33%, 47%, 78%, 93% { opacity: 0; }
+}
+
+@keyframes glitch-font {
+	0% {
+		font-weight: 100;
+		color: #eb1d53; /* #e0287d */
+		filter: blur(3px);
+	}
+	20% {
+		font-weight: 500;
+		color: #242424; /* #ffffff */
+		filter: blur(0);
+	}
+	50% {
+		font-weight: 300;
+		color: #66c9cf; /* #1bc7fb */
+		filter: blur(2px);
+	}
+	60% {
+		font-weight: 700;
+		color: #242424; /* #ffffff */
+		filter: blur(0);
+	}
+	90% {
+		font-weight: 500;
+		color: #eb1d53; /* #e0287d */
+		filter: blur(6px);
+	}
+}
+
+.glitch span {
+	animation: glitch-paths 5s step-end infinite;
+}
+
+.glitch::before {
+	animation: glitch-paths 5s step-end infinite, glitch-opacity 5s step-end infinite,
+		glitch-font 8s step-end infinite, glitch-movement 10s step-end infinite;
+}
+
+.glitch::after {
+	animation: glitch-paths 5s step-end infinite, glitch-opacity 5s step-end infinite,
+		glitch-font 7s step-end infinite, glitch-movement 8s step-end infinite;
+}
+/* END TEXT GLITCH EFFECT */
+
+/* NAVBAR */
+.navbar--wrapper {
+	background: rgba(255,255,255,0.5);
+}
+
+nav {
+	width: 100%;
+	max-width: 1000px;
+	min-width: 264px;
+	height: 16vh;
+	min-height: 100px;
+	margin: 0 auto;
+	padding: 0 12px;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.personal__logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin: 0 12px;
+	animation: animate-logo 600ms 400ms backwards;
+}
+
+.nav__link--list {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	animation: animate-navbar 600ms 400ms backwards;
+}
+
+.nav__link--anchor {
+	margin: 0 12px;
+	color: #242424;
+	font-weight: 700;
+}
+
+.nav__link--anchor-button {
+	position:relative;
+	top: -3px;
+	padding:8px 16px;
+	background-color:#ff7c22;
+	text-decoration:none;
+	color:#ffffff;
+	border-radius: 5px;
+	box-shadow: inset 0 1px 0 #ffa365, 0 5px 0 0 #b14e14, 0 10px 5px rgba(0, 0, 0, 0.5);
+	transition: all 50ms;
+}
+
+@media (hover: hover) {
+	.nav__link--anchor-button:hover {
+		/* background-image: linear-gradient(to bottom, rgb(255,230,0) 0%, rgb(255,124,34) 100%); */
+		box-shadow: inset 0 1px 0 #ffa365, 0 5px 0 0 #b14e14, 0 10px 5px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 124, 34, 1);
+	}
+}
+
+.nav__link--anchor-button:active {
+	top: 0;
+	background-image: linear-gradient(to bottom, rgb(255,124,34) 0%, rgb(255, 102, 0) 100%);
+	box-shadow: inset 0 1px 0 #ffa365, 0 2px 0 0 #b14e14, 0 5px 3px rgba(0, 0, 0, 0.5);
+}
+/* END NAVBAR */
+
+/* SCROLL DOWN INDICATOR */
+.scroll-down {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	justify-content: center;
+	animation: bounce 1s ease infinite;
+}
+
+.circle {
+	position: relative;
+	/* border: 3px solid #242424; */
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+}
+
+.scroll-down__arrow {
+	z-index: 999;
+	height: 3px;
+	width: 30px;
+	background: #242424;
+}
+
+.scroll-down__arrow:first-child {
+	position: absolute;
+	left: 25%;
+	bottom: 45%;
+	display: block;
+	transform: rotate(45deg);
+}
+
+.scroll-down__arrow:nth-child(2) {
+	position: absolute;
+	left: 45%;
+	bottom: 45%;
+	display: block;
+	transform: rotate(-45deg);
+}
+/* END SCROLL DOWN INDICATOR */
+
+/* FOOTER */
+footer {
+	min-width: 264px;
+	min-height: 150px;
+	background-color: #242424;
+}
+
+.footer__row {
+	padding: 12px 0;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer__anchor {
+	margin-bottom: 20px;
+	justify-content: center;
+	position: relative;
+}
+
+.footer__logo--img {
+	width: 80px;
+	height: 80px;
+	filter: invert(100%);
+}
+
+.footer__logo--popper {
+	position: absolute;
+	right: 0;
+	top: 30px;
+	font-weight: 700;
+	opacity: 0;
+	transition: all 200ms ease;
+}
+
+.footer__anchor:hover .footer__logo--popper {
+	transform: translateX(50px);
+	opacity: 1;
+}
+
+.footer__social--list {
+	width: 100%;
+	max-width: 500px;
+	margin: 12px 0;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-around;
+}
+
+.footer__social--link,
+.footer__logo--popper {
+	color: #ffffff;
+}
+
+.anchor--scroll-to-top {
+	border-radius: 50px;
+	position: relative;
+}
+
+.anchor__img--scroll-to-top {
+	filter: invert(39%) sepia(1%) saturate(0%) hue-rotate(183deg) brightness(99%) contrast(86%); /* #676767 */
+}
+
+.anchor--scroll-to-top:hover .anchor__img--scroll-to-top {
+	filter: invert(54%) sepia(0%) saturate(14%) hue-rotate(177deg) brightness(89%) contrast(88%); /* #7b7b7b */
+}
+
+.anchor--scroll-to-top:active .anchor__img--scroll-to-top {
+	filter: invert(39%) sepia(1%) saturate(0%) hue-rotate(183deg) brightness(99%) contrast(86%); /* #676767 */
+}
+/* END FOOTER */
+
+/* PROGRESS CURSOR */
+/* I find this too slow following the cursor */
+/* .progress--wrapper {
+	height: 46px;
+	width: 46px;
+	display: block;
+	border-radius: 50px;
+	box-shadow: inset 0 0 0 2px rgba(255,255,255,0.2);
+	z-index: 10000;
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear;
+}
+
+.progress--wrapper svg path {
+	fill: none; 
+}
+
+.progress--wrapper svg.progress-circle path {
+	stroke: #242424;
+	stroke-width: 4;
+	box-sizing: border-box;
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear;
+}
+
+.cursor,
+.cursor2,
+.cursor3 {
+	position: fixed;
+	border-radius: 50%; 
+	transform: translateX(-50%) translateY(-50%);
+	pointer-events: none;
+	left: -100px;
+	top: 50%;
+	-webkit-transition: all 300ms linear;
+	transition: all 300ms linear;
+}
+
+.cursor {
+	background-color: #ffffff;
+	z-index: 99999;
+	height: 0;
+	width: 0;
+}
+
+.cursor2, .cursor3 {
+	height: 46px;
+	width: 46px;
+	z-index:99998;
+	-webkit-transition:all 0.3s ease-out;
+	transition:all 0.3s ease-out
+}
+
+.cursor2 .hover,
+.cursor3 .hover {
+	transform:scale(1.4) translateX(-35%) translateY(-35%);
+	-webkit-transform:scale(1.4) translateX(-35%) translateY(-35%);
+	border:none
+}
+.cursor2 .hover {
+	background: rgba(255,255,255,0.1);
+}
+
+.cursor2 .hover .progress--wrapper {
+	box-shadow: inset 0 0 0 2px rgba(255,255,255,0);
+}
+
+.cursor2 .hover .progress--wrapper svg.progress-circle path {
+	opacity: 0.4;
+} */
+/* END PROGRESS CURSOR */
+
+/* PROGRESS BAR */
+/* top: 0 places the bar at the top, top: calc(100vh - 7px) places the bar at the bottom */
+/* .progress-bar--wrapper {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 7px;
+	z-index: 999;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.progress-bar--wrapper > .progress-bar {
+	height: 7px;
+	width: 0;
+	background-color: rgba(36, 36, 36, 1);
+} */
+/* END PROGRESS BAR */
+
+/* ANIMATIONS */
+@keyframes animate-logo {
+	0% {
+		transform: translateX(-400px);
+		opacity: 0;
+	}
+	80% {
+		transform: translateX(6px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(0px);
+	}
+}
+
+@keyframes animate-navbar {
+	0% {
+		transform: translateX(400px);
+		opacity: 0;
+	}
+	80% {
+		transform: translateX(-6px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(0px);
+	}
+}
+
+@keyframes fade-up {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes bounce {
+	50% {
+		transform: translateY(-20%);
+	}
+}
+
+@keyframes bounce-scale-in {
+	0% {
+		transform: scale(0);
+	}
+	80% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes opacity-blink {
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 0;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes color-blink {
+	from, to { border-color: transparent }
+	50% { border-color: #242424; }
+}
+
+@keyframes loading-spinner {
+	from {
+		transform: rotate(0turn);
+	}
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+@keyframes shake {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	10%, 30%, 50%, 70%, 90% {
+		transform: translateX(-10px);
+	}
+	20%, 40%, 60%, 80% {
+		transform: translateX(10px);
+	}
+}
+
+@keyframes scaleFromUp {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes moveUp {
+	0% {
+		transform: translateY(50%);
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+/* END ANIMATIONS */
+
+/* RESPONSIVE SECTION: BIG TABLETS (AKA THE FKN IPAD AIR and SURFACE PRO) */
+/* Yes, I know I should have started from the smallest screen going up, but as you read in the title I don't do frontend :) */
+@media only screen and (max-width: 912px) {
+
+}
+/* RESPONSIVE SECTION: SMARTPHONES AND TABLETS */
+@media only screen and (max-width: 768px) {
+	nav {
+		height: 12vh;
+		min-height: 72px;
+	}
+
+	.first-section--fullscreen {
+		/* temporarily disabled because mobile browsers usually already cover part of the viewport, maybe I'll find another solution (very unlikely) */
+		/* min-height: calc(100vh - 12vh); */
+	}
+
+	.anchor--scroll-to-top {
+		margin-top: 20px;
+	}
+}
+
+/* RESPONSIVE SECTION: SMALL PHONES */
+@media only screen and (max-width: 480px) {
+	.nav__link:not(:last-child) {
+		display: none;
+	}
+}
+
+/* RESPONSIVE SECTION: FUCKIN' FOLDIN' PHONES */
+/* @media only screen and (max-width: 360px) {
+
+	.personal__logo {
+		font-size: 20px;
+	}
+
+	.nav__link--anchor {
+		margin: 0;
+	}
+} */
+/* END RESPONSIVE SECTION */

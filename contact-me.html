@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="description placeholder"> <!-- modify here -->
+	<meta name="keywords" content="keywords, placeholder, personal website"> <!-- modify here -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="name placeholder"> <!-- modify here -->
+
+	<meta name="theme-color" content="#f8f8f8">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon/favicon.png">
+	<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon-precomposed.png">
+	<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Recursive&display=swap" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive&display=swap" crossorigin>
+	
+	<title>contact me page title placeholder</title>
+
+	<!-- Flash Of Unstyled Content fix (a.k.a. FOUC OFF) -->
+	<style>body{ visibility: hidden; opacity: 0; }</style>
+
+	<link rel="preload" as="style" href="/css/contact-me.css" crossorigin>
+	<link rel="stylesheet" href="/css/contact-me.css" crossorigin>
+	
+</head>
+<body>
+
+	<!-- NAVBAR -->
+	<div class="navbar--wrapper">
+		<nav>
+			<div class="personal__logo secondary-color">name or personal logo placeholder</div> <!-- modify here -->
+			<ul class="nav__link--list">
+				<li class="nav__link">
+					<a href="/" class="
+					nav__link--anchor
+					nav__link--anchor-button
+					">homepage</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!-- END NAVBAR -->
+
+	<!-- FORM -->
+	<section id="contact-me" class="first-section--fullscreen alternate-background-color">
+		<div class="container">
+			<div class="row">
+				
+				<div class="form--wrapper">
+					<form id="contact-form">
+					
+						<fieldset>
+							<label>
+								your email:
+								<input type="email" name="user_email" id="email" required autofocus>
+							</label>
+						</fieldset>
+
+						<fieldset>
+							<label>
+								message:
+								<textarea name="message" id="message" required></textarea>
+							</label>
+						</fieldset>
+
+						<fieldset>
+							<button type="submit" id="submit-button" class="submit-button button">send</button>
+						</fieldset>
+
+						<!-- replace the data-sitekey value with the one you get from https://www.google.com/recaptcha/ -->
+						<!-- <div id="g-recaptcha"
+							class="g-recaptcha"
+							data-sitekey="placeholder"
+							data-callback="recaptchaCallback"
+							data-size="invisible">
+						</div> -->
+
+					</form>
+				</div>
+
+				<div class="result-message--wrapper">
+					<span id="result-message" class="result-message"></span>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- END FORM -->
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="row footer__row">
+
+			<div class="footer__social--list">
+
+				<!-- modify here -->
+				<a href="link-placeholder" target="_blank" class="
+				footer__social--link
+				link__hover-effect
+				link__hover-effect--light
+				">LinkedIn</a>
+
+				<!-- modify here -->
+				<a href="link-placeholder" target="_blank" class="
+				footer__social--link
+				link__hover-effect
+				link__hover-effect--light
+				">GitHub</a>
+
+				<!-- modify here -->
+				<a href="link-placeholder" class="
+				footer__social--link
+				link__hover-effect
+				link__hover-effect--light
+				">Resume</a>
+
+				<!-- if needed, or in case you want to remove the contact me page, enable by removing the hidden class -->
+				<a href="mailto:your@email.com" class="
+				footer__social--link
+				link__hover-effect
+				link__hover-effect--light
+				hidden
+				">Email</a>
+
+			</div>
+		
+			<div class="anchor--scroll-to-top--wrapper">
+				<a href="#" class="anchor--scroll-to-top">
+					<img src="/assets/img/arrow_scroll_to_top.svg" alt="button scroll to top" class="anchor__img--scroll-to-top">
+				</a>
+			</div>
+			
+		</div>
+		
+	</footer>
+	<!-- END FOOTER -->
+
+	<!-- SCRIPTS -->
+	<link rel="prefetch" href="/js/jquery.js">
+	<script src="/js/jquery.js" defer></script>
+	<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+	<link rel="prefetch" href="/js/send_email.js">
+	<script src="/js/send_email.js" defer></script>
+	<link rel="prefetch" href="https://www.google.com/recaptcha/api.js">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!-- END SCRIPTS -->
+
+	<!-- FOUC fix -->
+	<style>body{ visibility: visible; opacity: 1; }</style>
+
+</body>
+</html>
