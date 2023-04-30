@@ -1,18 +1,26 @@
 class TypeWriter {
-
-	constructor(element, wait, lines, defaultLines) {
-
-		this.element = element;
-		this.typeDelay = 30;
-		this.wait = parseInt(wait, 10);
-		this.firstLine = lines.getRandom(); // get one random line to write;
-		this.defaultLines = defaultLines;
-		this.text = "";
-		this.fastDelete = false;
-		
-	}
 	
 	static lineBreak = document.createElement("br");
+
+	constructor(element, lines, defaultLines, typingDelay = 30, readingDelay = 3000, useCurrentElementAsDefault = false) {
+
+		this.element = element;
+		this.typingDelay = typingDelay;
+		this.typingDelayRange = 30; // typingDelay will be calculated in a range between - an + typingDelayRange
+		this.readingDelay = parseInt(readingDelay, 10); // time given to the user to read before deleting
+		this.firstLine = lines.getRandom(); // get one random line to write;
+		/*
+		element could be already filled with a default text, to avoid a blank page if JS is disabled.
+		In this case I get it and use it later as a default text,
+		then I clean the element before running the typewriter
+		*/
+		// combined optional chaining (?) and nullish coaleshing (??) operator, not working on older browsers but very clean code
+		// this.defaultLines = this.element?.innerHTML?.trim() ?? defaultLines;
+		this.defaultLines = useCurrentElementAsDefault && element && element.innerHTML.trim() ? element.innerHTML.trim().split(/<br\s*\/?>/) : defaultLines;
+		this.element.innerHTML = "";
+		this.text = "";
+		
+	}
 
 	async start() {
 		
@@ -20,28 +28,26 @@ class TypeWriter {
 		// write first line
 		for (let currentChar = 0; currentChar < this.firstLine.length; currentChar++) {
 
-			await sleep(between(this.typeDelay - 20, this.typeDelay + 20));
+			await sleep(randomBetween(this.typingDelay - this.typingDelayRange, this.typingDelay + this.typingDelayRange));
 			this.write(this.firstLine[currentChar]);
 
 		}
 
-		// wait some time for the user to read the joke
-		await sleep(this.wait);
+		// wait some time for the user to read the line
+		await sleep(this.readingDelay);
 		
-		if (Math.random() < 0.5) {
+		if (Math.random() < 0.5) { // select and delete whole text or...
 			
-			// select and delete whole text or...
 			this.element.classList.add("text--selected");
-			await sleep(this.wait/3);
+			await sleep(this.readingDelay/3);
 			this.clear();
 			this.element.classList.remove("text--selected");
 
-		} else {
+		} else { // ...delete text character by character
 			
-			// ...delete text letter by letter
 			for (let i = this.firstLine.length; i >= 0; i--) {
 
-				await sleep(this.typeDelay/2);
+				await sleep(this.typingDelay/2);
 				this.delete(i);
 
 			}
@@ -53,7 +59,7 @@ class TypeWriter {
 
 			for (let currentChar = 0; currentChar < this.defaultLines[currentLine].length ; currentChar++) {
 
-				await sleep(between(this.typeDelay - 30, this.typeDelay + 30));
+				await sleep(randomBetween(this.typingDelay - this.typingDelayRange, this.typingDelay + this.typingDelayRange));
 				this.write(this.defaultLines[currentLine][currentChar]);
 
 			}
@@ -80,9 +86,9 @@ class TypeWriter {
 
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
-}  
+}
 
-function between(first, last) {
+function randomBetween(first, last) {
 	return Math.floor(Math.random() * first) + last;
 }
 

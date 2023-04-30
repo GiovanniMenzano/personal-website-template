@@ -27,24 +27,25 @@ function init() {
 function initTypewriter() {
 
 	const typewriterElement = document.querySelector(".type-area");
-	typewriterElement.innerHTML = ""; // element should be already filled with a default text in case JS is disabled, so I clean it before running the typewriter
-	const typewriterWait = 2000;
 
-	/*
-	using fetch to get config data from server
-	customize this config file by inserting all the lines wanted into the "lines" variable,
-	replace the defaultLines value with your name and description, so it will be displayed after one random line (see typewriter.js),
-	and also the data-sitekey value with the one you get from https://www.emailjs.com/
-	*/
+	// using fetch to get config data from server
 	fetch("../js/config.json")
 	.then(response => response.json())
 	.then(data => {
 
-		const lines = data.lines.slice();
-		const defaultLines = data.defaultLines.slice();
+		/* the .slice method makes a (shallow) copy of an array, calling it with no arguments just copies the entire array.
+		Why am I calling it with 0? As you can read here https://stackoverflow.com/questions/11286950/using-the-javascript-slice-method-with-no-arguments:
+		"JavaScript references (like MDN) usually say that .slice() requires at least one argument, the start index. Calling .slice() with no arguments is like saying .slice(undefined).
+		In the ECMAScript Language Spec, step 5 in the .slice() algorithm says "Let relativeStart be ToInteger(start)".
+		If you look at the algorithm for the abstract operation ToInteger(), which in turn uses ToNumber(), you'll see that it ends up converting undefined to 0."
+		*/
+		const lines = data.lines.slice(0);
+		const defaultLines = data.defaultLines.slice(0);
+		const typingDelay = data.typewriterTypingDelay;
+		const readingDelay = data.typewriterReadingDelay;
 
 		// typewriter
-		tw = new TypeWriter(typewriterElement, typewriterWait, lines, defaultLines);
+		let tw = new TypeWriter(typewriterElement, lines, defaultLines, typingDelay, readingDelay, true);
 		tw.start();
 
 	});

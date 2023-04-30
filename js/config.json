@@ -12,5 +12,7 @@
 		"Hi, I'm <your name here>.",
 		"<your description here>."
 	],
+	"typewriterTypingDelay" : 20,
+	"typewriterReadingDelay" : 2000,
 	"emailjspk" : "replace this key value with the one you get from https://www.emailjs.com/"
 }
